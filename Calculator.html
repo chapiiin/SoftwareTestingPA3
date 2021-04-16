@@ -1,0 +1,68 @@
+<html>
+<head>
+<title> BMI and Retirement Calculator </title>
+<link rel="stylesheet" href="SQA.css" />
+<script src="Calculator.js"></script>
+</head>
+
+<body>
+<div class="flex-container">
+  <div class="flex-child">
+    <h3> Calculate BMI Here </h3>
+      <div class="wrapper">
+      <label for="fname">Height (ft.):</label>
+      <input type="text" id="height_ft" placeholder="Ex: 5">
+      </div>
+      <br> <!-- whitespace -->
+      <div class="wrapper">
+      <label for="fname">Height (in.):</label>
+      <input type="text"  id="height_in" placeholder="Ex: 11">
+      </div>
+      <br>
+      <div class="wrapper">
+      <label for="fname">Weight (lbs.): </label>
+      <input type="text" id="weight" placeholder="Ex: 180">
+      </div>
+      <br>
+      <!-- button -->
+      <div class="wrapper">
+          <button onclick="CalculateBMI()">Calculate Your BMI</button>
+      </div>
+      <br>
+      <p> Your BMI is <span id="bmi">?</span> </p>
+      <p> BMI Category: <span id="bmi_category">?</span> </p>
+      <br>
+  </div>
+
+  <div class="flex-child">
+      <h3> Calculate Retirement Here </h3>
+      <div class="wrapper">
+      <label for="fname">Current Age:</label>
+      <input type="text" id="age" placeholder="Ex: 25">
+      </div>
+      <br>
+      <div class="wrapper">
+      <label for="fname">Annual Salary:</label>
+      <input type="text" id="salary" placeholder="Ex: 65000">
+      </div>
+      <br>
+      <div class="wrapper">
+      <label for="fname">Percent of Salary Saved:</label>
+      <input type="text" id="saved" placeholder="Ex: 10.5">
+      </div>
+      <br>
+      <div class="wrapper">
+      <label for="fname">Retirement Goal:</label>
+      <input type="text" id="goal" placeholder="Ex: 200000">
+      </div>
+      <br>
+      <div class="wrapper">
+        <button onclick="CalculateRetirement()">Calculate Retirement</button>
+      </div>
+      <br>
+      <p> Your Retirement Goal of $<span id="retirement_goal"> </span> will <span id="goal_met"> </span> <span id="by_age"></span> <span id="retirement_age">???</span> </p>
+      <br>
+  </div>
+</div>
+</body>
+</html>
