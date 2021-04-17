@@ -10,8 +10,9 @@ install:
 
 # command to run tests
 script:
-  - pytest --cov=calculate_retirement/
-  - pytest --cov=calculate_bmi/
+  - pytest --cov bmi test_bmi.py
+  #- pytest --cov=calculate_retirement/
+  #- pytest --cov=calculate_bmi/
 after_success:
   - coveralls
 
