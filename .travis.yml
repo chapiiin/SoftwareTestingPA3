@@ -4,16 +4,26 @@ python:
 
 # command to install dependencies
 install:
+  - pip install selenium
+  - pip install pandas
   - pip install pytest
   - pip install pytest-cov
   - pip install coveralls
+  - wget -N https://chromedriver.storage.googleapis.com/90.0.4430.24/chromedriver_linux64.zip -P ~/
+  - unzip ~/chromedriver_linux64.zip -d ~/
+  - rm ~/chromedriver_linux64.zip
+  - sudo mv -f ~/chromedriver /usr/local/share/
+  - sudo chmod +x /usr/local/share/chromedriver
+  - sudo ln -s /usr/local/share/chromedriver /usr/local/bin/chromedriver
+
+addons:
+  chrome: stable
 
 # command to run tests
 script:
+  - python selenium_test_bmi.py
+  - python selenium_test_retirement.py
   - pytest --cov bmi test_bmi.py
   - pytest --cov retirement test_retirement.py
-  #- pytest --cov=calculate_retirement/
-  #- pytest --cov=calculate_bmi/
 after_success:
   - coveralls
-
