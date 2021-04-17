@@ -2,16 +2,27 @@ language: python
 python:
 - "3.8"
 
-#command to install dependencies
+# command to install dependencies
 install:
+  - pip install selenium
+  - pip install pandas
   - pip install pytest
   - pip install pytest-cov
   - pip install coveralls
+  - wget -N https://chromedriver.storage.googleapis.com/90.0.4430.24/chromedriver_linux64.zip -P ~/
+  - unzip ~/chromedriver_linux64.zip -d ~/
+  - rm ~/chromedriver_linux64.zip
+  - sudo mv -f ~/chromedriver /usr/local/share/
+  - sudo chmod +x /usr/local/share/chromedriver
+  - sudo ln -s /usr/local/share/chromedriver /usr/local/bin/chromedriver
+  
+addons:
+  chrome: stable
 
-#command to run tests
+# command to run tests
 script:
-  - pytest --cov=calculate_retirement/
-  - pytest --cov=calculate_bmi/
+  - python selenium_test_bmi.py
+  - python selenium_test_retirement.py
 after_success:
   - coveralls
 
